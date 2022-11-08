@@ -1,0 +1,75 @@
+Overview Guide for AQA Computer Science NEA Coursework: Name: Nathan Horder  Candidate ID: 0183
+
+Python Libraries Used:
+
+   import random - Used to randomly select integers, this is used primearily for the "Random" genre button
+
+   import tkinter - This library is used to create the UI interface that the user interacts with, this also creates the widgets (Buttons, Labels, Text boxes, entry boxes,ect)
+
+   from PIL import ImageTk,Image - The library PIL is used to import "ImageTk" and "Image". These two imports are used to display the images that is used throughout the software, this is a vital import and is required to run the program
+
+   from functools import partial - The library functools in used to import "partial", this allows the button used from the tkinter library to call the same subroutine but with a value dependent on the button selected. This is mainly
+   used to make the program more effient
+
+   from shutil import copyfile - The library shutil is used to import "copyfile", this allows a file to be copied from the user's files onto the USB, this is used when the user wants to change their profile picture. This prevents the
+   error of unique account images from creating errors when the USB is used on other devices
+
+
+
+Databases Used:
+
+    Please note that the databases are spread across multiple text files located in the User_Info and Books_Info folders. But the whole inital database can be viewed in the Excel file labeled "NEA_Excel" that is located in the NEA_USB
+    folder. When the program is run and a new user creates an account, the Excel file would not change. If a new book is to be added to the database, it should be first added to the Excel file then into the text files in the correct
+    locations. The Excel file also acts as a database backup if it is needed as such
+
+    The database "User_Info" is used to contain all the user information (Under "User" in Excel File and the repective text files are located in the "User_Info" folder). This information is the Usernames, User Names, Encyrpted Passwords,
+    User Last Seen Books, User Account Balances and the User profile picture locations ("User_UserNames.txt", "User_Names.txt","User_Passwords.txt", "User_Last_Seen.txt", "User_Account_Bal.txt", "User_Photo_Locations.txt" respectivly)
+
+    The database "Books_Info" is used to contain all the user information (Under "Books" in Excel File and the respective text files are located in the "Books_Info" folder) The information contained is the Book Names, Book Authors, 
+    Book Genres, Book Decriptions, Book Prices and Book Photo Locations ("Book_Name.txt", "Book_Author.txt", "Book_Genre.txt", "Book_Decriptions.txt","Book_Coin.txt" and "Book_Photo_Dictionary.txt" respectivly)
+
+    The databases stated above are the base of the system, it allows the program to run as expected and work as intented.
+
+    The "User_Photo_Locations.txt" and "Book_Photo_Locations.txt" files display the path to the "User_Images" and "Book_Images" folders respectivly. These files contain the profile pictures of the users and the cover of the books. These
+    files are used so that the locations can be called from within the program and are all located in one location.
+    
+
+Imported Files used in Main Program:
+
+    Encyrption_And_Decryption_Subroutines.py - Used to import two subroutines, Encrypt and Decrypt. These subroutines are used to decrypt and encrypt the user passwords located in the database
+
+    Mega_Book_List_Creation.py - Used to import a subroutine called Mega_Book_List, this subroutine creates a large dictionary containing the book info (Key 1 = "Genre1","PhotoLocation1","BookName","BookAuthor","BookPrice",
+    "Book_Decription")
+
+    Mega_User_List_Creation.py - Used to import a subroutine called Mega_User_List, this subroutine creates a large dictionary containing user info (Key 1 = "UserUsername1","UserPhoto1","Password1","UserName1","UserAccountBal1",
+    "LastSeen1")
+
+
+
+Major Subroutine Names and their respective functions: (Please note all of the subroutines are located in the class Main_Program)
+
+     Main_Interface - Used to display the homescreen, Genre buttons, Search Buttons, Logo and Sign In / Account drop down menu
+
+     Page_Generation - Used to display books dependent on the genre or search result selected in the Main_Interface Subroutine
+
+     Present_Book_Information - Used to display the books relevant information (Author, Title, Front Cover, Description and Price (If logged In))
+
+     Login_Screen - Used to display the Login screen and allows the user to login to a existing account or create one
+
+     Account_Creation - Used to create a new user account, also checks if the username input is already in the system
+
+     User_Account_Interface - Used to display the user settings page, this page contains buttons that change the user profile picture, change the user's name or password, last seen, account balance and delete account
+ 
+     User_Account_Bal_Interface - Displays information regarding the user's accocunt balance and displays the buttons and labels for increasing the balance of the account.
+ 
+     User_Last_Seen_Interface - Displays the last four books the user has looked at (clicked on and presented book information)
+
+     Search_Books - Displays the books dependent on the users input in the Search bar located at the top of the main page
+
+     Destroy_All - A nested subroutine located in every major subroutine within the class, this "destroys" all the widgets (Buttons, Labels, entry boxes, ect) on the current page, each Destroy_All subroutine is uniquee and not ossociated
+     with other Destroy_All subroutines in differnt major subroutines
+
+     Return - A nested subroutine located in every major subroutine within the class, calls the previous major subroutine after calling the local Destroy_All subroutine. This directs the user back to the page they were last on.
+     
+
+
